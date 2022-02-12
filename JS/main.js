@@ -3,6 +3,9 @@ const idade = document.getElementById("idade");
 const result = document.getElementById("result");
 const res = document.getElementById("res");
 const frases = document.getElementById("text");
+const skills = document.getElementById("skill");
+const divs = document.getElementById("obj");
+
 
 function calculo() {
     const nascimento = 2022 - idade.value;
@@ -14,8 +17,6 @@ function calculo() {
     }
     return result.innerText = `Preencha todos os campos`;
 }
-
-
 
 function troco() {
     if(idade.value != ""){
@@ -57,4 +58,26 @@ function frase(){
         res.innerHTML += `<p>Sua frase tem ${cont.length} <span>letras<span>.</p>`;
     }
     
+}
+
+function user(){
+    const users = {
+        name: nome.value,
+        idade:idade.value,
+        skill:skills.value
+    }
+    if (nome.value != "" && idade.value != "" && skills.value != "") {
+        if (idade.value <= 0) {
+           return alert(`Caramba ${nome.value}, você e um bichão mermo`);
+        }
+        divs.innerHTML += `<p>
+             Nome: ${users.name}<br>
+             Idade: ${users.idade}<br>
+             Skill: ${users.skill}<br>
+             ________________
+        </p>`
+    }else{
+        return alert(`Preencha todos os campos`);
+    }
+   return divs
 }
