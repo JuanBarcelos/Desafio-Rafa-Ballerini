@@ -2,6 +2,7 @@ const nome = document.getElementById("name");
 const idade = document.getElementById("idade");
 const result = document.getElementById("result");
 const res = document.getElementById("res");
+const frases = document.getElementById("text");
 
 function calculo() {
     const nascimento = 2022 - idade.value;
@@ -38,4 +39,22 @@ function troco() {
     }
     res.innerHTML += `<p>Preencha todos os campos</p>`;
     return res;
+}
+
+function frase(){
+    if(frases.value != ""){
+        const texto = frases.value
+        const palavras  = texto.split(" ")
+        let cont = "";
+
+        for(let i = 0; i < palavras.length; i++){
+           const letra = palavras[i];
+            cont += letra
+        }
+
+        res.innerHTML += `<p>Sua frase tem ${palavras.length} <span>palavras</span>.</p>`;
+
+        res.innerHTML += `<p>Sua frase tem ${cont.length} <span>letras<span>.</p>`;
+    }
+    
 }
